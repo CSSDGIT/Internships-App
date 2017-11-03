@@ -1,5 +1,3 @@
-'use strict'
-
 // Import the required modules
 const express = require('express')
 const request = require('request')
