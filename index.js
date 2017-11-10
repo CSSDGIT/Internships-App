@@ -1,18 +1,16 @@
-// Import the required modules
-const express = require('express')
-const request = require('request')
-const bodyParser = require('body-parser')
+'use strict'
 
-// Make an express object
+const express = require('express')
+const bodyParser = require('body-parser')
+const request = require('request')
 const app = express()
 
-// Sets the port for the app 
-app.set('port', (process.env.port || 5000))
+app.set('port', (process.env.PORT || 5000))
 
 // Process application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended: false}))
 
-// Process application/json (JSON = JavaScript Object Notation)
+// Process application/json
 app.use(bodyParser.json())
 
 // Index route
@@ -22,8 +20,7 @@ app.get('/', function (req, res) {
 
 // for Facebook verification
 app.get('/webhook/', function (req, res) {
-	// Let's make the verify token random to enforce security
-	if (req.query['hub.verify_token'] === 'dUD2dYajVZ') {
+	if (req.query['hub.verify_token'] === 'Ivy1JiefVM') {
 		res.send(req.query['hub.challenge'])
 	}
 	res.send('Error, wrong token')
