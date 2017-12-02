@@ -5,8 +5,6 @@ const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
 
-const token = "EAAHaUc9IMdsBAObzVp370YUFtL5QiNsucZAWe7iHxFCPWBnCh3LiDelKwXYYYWJyH15H5sAZBfkoejXLWIkCjZC8MWu0rjIDIsuM1bxJZAOqHOMIVjcrfZCol0cp8LlLDZCfa9iPFIK4yfpJbOOgDXppZCSkHSsO6hmVhi1JOvhHQNVyO0OtYm9"
-
 app.set('port', (process.env.PORT || 5000))
 
 // Process application/x-www-form-urlencoded
@@ -41,6 +39,8 @@ app.post('/webhook/', function (req, res) {
     res.sendStatus(200)
 })
 
+const token = "EAAHaUc9IMdsBAObzVp370YUFtL5QiNsucZAWe7iHxFCPWBnCh3LiDelKwXYYYWJyH15H5sAZBfkoejXLWIkCjZC8MWu0rjIDIsuM1bxJZAOqHOMIVjcrfZCol0cp8LlLDZCfa9iPFIK4yfpJbOOgDXppZCSkHSsO6hmVhi1JOvhHQNVyO0OtYm9"
+
 function sendTextMessage(sender, text) {
     let messageData = { text:text }
     request({
@@ -59,7 +59,6 @@ function sendTextMessage(sender, text) {
 	    }
     })
 }
-
 
 // Spin up the server
 app.listen(app.get('port'), function() {
